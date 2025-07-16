@@ -18,7 +18,7 @@ public class PhotoRepositoryImpl   {
 
     public void addPhotoFile(Base64PhotoFile file) {
         
-    
+     
         int result = this.jdbcTemplate.queryForObject("SELECT COUNT(*) FROM PHOTO WHERE NAME = ?", Integer.class, file.name());
  
         System.out.println("Checking if photo with name " + file.name() + " exists. Result: " + result);
@@ -36,14 +36,14 @@ public class PhotoRepositoryImpl   {
     }
 
 
-    public String getPhotoFile(String name) {
+    public Base64PhotoFile getPhotoFile(String name) {
         System.out.println("Retrieving photo with name: " + name);
 
         Base64PhotoFile result = jdbcTemplate.queryForObject("SELECT * FROM PHOTO WHERE NAME = ?", Base64PhotoFile.class, name);
         
         if (result != null) {
             System.out.println("Photo found: " + result.name());
-            return result.payload();
+            return result; // .payload();
         } else {
             System.out.println("Photo not found with name: " + name);
             return null;

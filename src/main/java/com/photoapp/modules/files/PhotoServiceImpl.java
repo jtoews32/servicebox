@@ -9,17 +9,11 @@ public class PhotoServiceImpl implements PhotoService {
 
     @Override
     public void addPhotoFile(Base64PhotoFile data) {
-
         photoRepository.addPhotoFile(data);
     }
 
-
     @Override
-    public String getPhotoFile(String name) {
-
+    public Base64PhotoFile getPhotoFile(String name) {
         return photoRepository.getPhotoFile(name);
     }
-
-
-    
 }
