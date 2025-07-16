@@ -2,6 +2,11 @@
 Photo App Upload Service
 
 
+## Versions 
+java -version
+
+java version "17.0.13" 2024-10-15 LT
+
 ## Buid
 
 mvn package 
@@ -13,7 +18,7 @@ java -jar target/servicebox-0.0.1-SNAPSHOT.jar
 
 ## Test
 
-http://localhost:8080/greeting
+mvn test
 
 ## Visit the File Storage H2 Database
 
