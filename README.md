@@ -15,16 +15,16 @@ Following these commands the backend should be running at
 http://127.0.0.1:8080/
 
 
-## Versions 
+## Versions Used When Building This
 java -version
 
 java version "17.0.13" 2024-10-15 LT
 
-## How to build a the Executable Jar
+## Rebuid The Executable Jar
 
 mvn package 
 
-## Run
+## To Re-Run
 
 java -jar target/servicebox-0.0.1-SNAPSHOT.jar
 
@@ -33,7 +33,7 @@ java -jar target/servicebox-0.0.1-SNAPSHOT.jar
 
 mvn test
 
-## Visit the File Storage H2 Database
+## The H2 Database Console
 
 http://localhost:8080/h2-console
 
