@@ -1,4 +1,4 @@
-package com.photoapp.modules.files;
+package com.photoapp.modules.photo;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
@@ -17,7 +17,7 @@ public class FileController {
 
     @PostMapping("/upload")
     @CrossOrigin(origins = "http://localhost:3000") 
-    public String upload(@RequestBody Base64PhotoFile data) {
+    public String upload(@RequestBody PhotoDAO data) {
         System.out.println("Received file: " + data.payload());
         String base64Image = data.payload();
 
@@ -42,7 +42,9 @@ public class FileController {
 
     @PostMapping("/download")
     @CrossOrigin(origins = "http://localhost:3000") 
-    public Base64PhotoFile download(@RequestBody Base64PhotoFile data) {
+    public PhotoDAO download(@RequestBody PhotoDAO data) {
+        System.out.println("Downloading file with name: " + data.name());
+
         return photoService.getPhotoFile(data.name());
     }
 }

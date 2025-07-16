@@ -1,4 +1,9 @@
-package com.photoapp.modules.files;
+package com.photoapp.modules.photo;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import javax.swing.tree.RowMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -6,16 +11,16 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public class PhotoRepositoryImpl   {
+public class PhotoRepository   {
 
     public JdbcTemplate jdbcTemplate;
 
     @Autowired
-    public PhotoRepositoryImpl(JdbcTemplate jdbcTemplate) {
+    public PhotoRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    public void addPhotoFile(Base64PhotoFile file) {
+    public void addPhotoFile(PhotoDAO file) {
         
      
         int result = this.jdbcTemplate.queryForObject("SELECT COUNT(*) FROM PHOTO WHERE NAME = ?", Integer.class, file.name());
@@ -34,19 +39,10 @@ public class PhotoRepositoryImpl   {
         } 
     }
 
-
-    public Base64PhotoFile getPhotoFile(String name) {
-        System.out.println("Retrieving photo with name: " + name);
-
-        Base64PhotoFile result = jdbcTemplate.queryForObject("SELECT * FROM PHOTO WHERE NAME = ?", Base64PhotoFile.class, name);
-        
-        if (result != null) {
-            System.out.println("Photo found: " + result.name());
-            return result; // .payload();
-        } else {
-            System.out.println("Photo not found with name: " + name);
-            return null;
-        }
-
+    // findUserById
+    public PhotoDAO  getPhotoFile(String name) {
+        String sql = "SELECT name, payload FROM photo WHERE name = ?";
+        return jdbcTemplate.queryForObject(sql, new PhotoDAORowMapper(), name);
     }
+
 }

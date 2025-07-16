@@ -4,13 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.photoapp.modules.files.PhotoRepositoryImpl;
-import com.photoapp.modules.files.PhotoService;
-import com.photoapp.modules.files.PhotoServiceImpl;
+import com.photoapp.modules.photo.PhotoRepository;
+import com.photoapp.modules.photo.PhotoService;
+import com.photoapp.modules.photo.PhotoServiceImpl;
 
 @Configuration
 public class CoreConfig {
-    @Autowired PhotoRepositoryImpl photoRepository;
+    @Autowired PhotoRepository photoRepository;
  
     @Bean public PhotoService createPhotoService() { return new PhotoServiceImpl(photoRepository); };
 }
