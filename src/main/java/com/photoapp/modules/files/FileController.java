@@ -25,12 +25,9 @@ public class FileController {
             String base64Data = base64Image.substring(base64Image.indexOf(",") + 1);
             byte[] decodedBytes = Base64.getDecoder().decode(base64Data);
 
-
             String str = new String(decodedBytes, StandardCharsets.UTF_8);
             System.out.println(str);
-
             System.out.println("Received File Name: " + data.name());
-
 
             photoService.addPhotoFile(data);
 
@@ -45,9 +42,7 @@ public class FileController {
 
     @PostMapping("/download")
     @CrossOrigin(origins = "http://localhost:3000") 
-    public String download(@RequestBody Base64PhotoFile data) {
-
-
-        
+    public Base64PhotoFile download(@RequestBody Base64PhotoFile data) {
+        return photoService.getPhotoFile(data.name());
     }
 }
