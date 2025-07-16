@@ -1,0 +1,1 @@
+insert into photo (name, payload) values ('example.txt', 'This is an example file content.');
