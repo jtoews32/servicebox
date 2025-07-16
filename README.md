@@ -7,7 +7,7 @@ java -version
 
 java version "17.0.13" 2024-10-15 LT
 
-## Buid
+## How to build a the Executable Jar
 
 mvn package 
 
