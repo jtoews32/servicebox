@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
 public class PhotoRepository   {
 
@@ -25,7 +24,6 @@ public class PhotoRepository   {
             String insert = "INSERT INTO photo (name, payload) VALUES (?, ?)";
             return this.jdbcTemplate.update(insert, file.name(), file.payload());
         } 
-
     }
 
     public PhotoDAO findByName(String name) {
