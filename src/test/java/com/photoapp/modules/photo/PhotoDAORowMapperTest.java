@@ -6,7 +6,6 @@ import static org.mockito.Mockito.when;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.junit.jupiter.api.Test;
 
 public class PhotoDAORowMapperTest {

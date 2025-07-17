@@ -1,8 +1,5 @@
 package com.photoapp.modules.photo;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
