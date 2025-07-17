@@ -28,12 +28,12 @@ public class FileController {
             System.out.println(str);
             System.out.println("Received File Name: " + data.name());
 
-            photoService.addPhotoFile(data);
+            photoService.save(data);
 
             return "Image uploaded and processed successfully!";
         } else {
 
-            System.out.println("Received name: " + data.name());
+ 
             return "Invalid image format. Expected data:image/jpeg;base64,";
         }
     }
@@ -43,6 +43,6 @@ public class FileController {
     public PhotoDAO download(@RequestBody PhotoDAO data) {
         System.out.println("Downloading file with name: " + data.name());
 
-        return photoService.getPhotoFile(data.name());
+        return photoService.findByName(data.name());
     }
 }

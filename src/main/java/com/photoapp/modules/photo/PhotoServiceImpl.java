@@ -8,12 +8,12 @@ public class PhotoServiceImpl implements PhotoService {
     }
 
     @Override
-    public void addPhotoFile(PhotoDAO data) {
-        photoRepository.addPhotoFile(data);
+    public int save(PhotoDAO data) {
+        return photoRepository.save(data);
     }
 
     @Override
-    public PhotoDAO getPhotoFile(String name) {
-        return photoRepository.getPhotoFile(name);
+    public PhotoDAO findByName(String name) {
+        return photoRepository.findByName(name);
     }
 }
