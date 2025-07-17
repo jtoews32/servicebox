@@ -1,7 +1,7 @@
 # servicebox
 Photo App Upload Service
 
-## Quick Download and Run Procedure
+## Quick start
 git clone https://github.com/jtoews32/servicebox
 
 cd servicebox
@@ -10,9 +10,9 @@ mvn package
 
 java -jar target/servicebox-0.0.1-SNAPSHOT.jar
 
-Following these commands the backend should be running at 
-
 http://127.0.0.1:8080/
+
+http://localhost:8080/h2-console
 
 
 ## Versions Used When Building This
